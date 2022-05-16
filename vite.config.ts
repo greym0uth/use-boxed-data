@@ -13,8 +13,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'lib/main.ts'),
-      name: 'UseAsyncData',
-      fileName: (format) => `use-async-data.${format}.js`,
+      name: 'UseBoxedData',
+      fileName: (format) => `use-boxed-data.${format}.js`,
     },
     rollupOptions: {
       external: ['react'],

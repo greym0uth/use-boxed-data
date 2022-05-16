@@ -1,5 +1,5 @@
 {
-  "name": "use-async-data",
+  "name": "use-boxed-data",
   "private": false,
   "version": "0.1.0",
   "scripts": {
@@ -10,12 +10,12 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/use-async-data.umd.js",
-  "module": "./dist/use-async-data.es.js",
+  "main": "./dist/use-boxed-data.umd.js",
+  "module": "./dist/use-boxed-data.es.js",
   "exports": {
     ".": {
-      "import": "./dist/use-async-data.es.js",
-      "require": "./dist/use-async-data.umd.js"
+      "import": "./dist/use-boxed-data.es.js",
+      "require": "./dist/use-boxed-data.umd.js"
     }
   },
   "types": "./dist/types/main.d.ts",

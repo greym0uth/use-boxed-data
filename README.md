@@ -1,12 +1,12 @@
-# use-async-data
+# use-boxed-data
 
-[![mit licence](https://img.shields.io/dub/l/vibe-d.svg?style=for-the-badge)](https://github.com/greym0uth/use-async-data/blob/main/LICENSE)
-[![npm version](https://img.shields.io/npm/v/use-async-data?style=for-the-badge)](https://www.npmjs.org/package/use-async-data)
-[![bundlephobia](https://img.shields.io/bundlephobia/minzip/use-async-data?label=size&style=for-the-badge)](https://bundlephobia.com/result?p=use-async-data)
+[![mit licence](https://img.shields.io/dub/l/vibe-d.svg?style=for-the-badge)](https://github.com/greym0uth/use-boxed-data/blob/main/LICENSE)
+[![npm version](https://img.shields.io/npm/v/use-boxed-data?style=for-the-badge)](https://www.npmjs.org/package/use-boxed-data)
+[![bundlephobia](https://img.shields.io/bundlephobia/minzip/use-boxed-data?label=size&style=for-the-badge)](https://bundlephobia.com/result?p=use-boxed-data)
 
 > React data-fetching using [boxed](https://github.com/swan-io/boxed)
 
-**use-async-data** provides a simple data fetching hook inspired by [SWR](https://swr.vercel.app/).
+**use-boxed-data** provides a simple data fetching hook inspired by [SWR](https://swr.vercel.app/).
 
 ## Design principles
 
@@ -24,18 +24,18 @@
 ## Installation
 
 ```bash
-$ pnpm add use-async-data
+$ pnpm add use-boxed-data
 # --- or ---
-$ yarn add use-async-data
+$ yarn add use-boxed-data
 # --- or ---
-$ npm install --save use-async-data
+$ npm install --save use-boxed-data
 ```
 
 ## Usage
 
 ``` tsx
 import { Future, Result } from '@swan-io/boxed';
-import { AysncFetcher, useData } from 'use-async-data';
+import { AsyncData, AysncFetcher, useData } from 'use-boxed-data';
 
 const fetcher: AsyncFetcher<CoolStuff> = (url: string, ...options: any[]) =>
   Future.make((resolve) =>
