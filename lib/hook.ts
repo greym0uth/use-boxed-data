@@ -1,5 +1,5 @@
 import { DataCacheContext } from './cache';
-import { AsyncData, Future, Result } from '@swan-io/boxed';
+import { AsyncData, Future, Option, Result } from '@swan-io/boxed';
 import { useContext, useEffect, useState } from 'react';
 
 export type AsyncFetcher<T = unknown> = (
@@ -9,7 +9,7 @@ export type AsyncFetcher<T = unknown> = (
 export type UseDataOptions = {
   onError?: (err: Error) => void;
   retryOnError?: boolean;
-  revalidate?: number;
+  revalidate?: number | false;
   [key: string]: any;
 };
 
@@ -35,7 +35,7 @@ export function useData<T = unknown>(
   {
     onError = () => {},
     retryOnError = true,
-    revalidateEvery = 60,
+    revalidate: revalidateEvery = 60,
     ...options
   }: UseDataOptions = {}
 ): UseDataResponse<T> {
@@ -97,7 +97,8 @@ export function useData<T = unknown>(
     });
 
     // Start the revalidate timer. This gets destroyed on before each effect and starts a new one, so a new timeout gets created on each revalidation.
-    const revalidationTimeout = setTimeout(retry, revalidateEvery * 1000);
+    // We only create the timeout if the revalidate option is not falsey.
+    const revalidationTimeout: NodeJS.Timeout | undefined = !revalidateEvery ? undefined : setTimeout(retry, revalidateEvery * 1000);
 
     return () => {
       // Cancel the revalidation future.
